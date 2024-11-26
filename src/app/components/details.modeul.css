@@ -1,0 +1,8 @@
+.details p,
+h3 {
+    width: fit-content;
+}
+
+.details {
+    width: 590px;
+}

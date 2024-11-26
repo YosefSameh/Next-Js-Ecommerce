@@ -1,0 +1,15 @@
+.img{
+
+    background-image: url("https://yosefsameh.github.io/Store-Vegetables/img/section-1-1.jpg");
+    height: 431px;
+    object-fit: cover;
+    width: 90%;
+
+  }
+  @media(max-width:992px){
+    .img{
+        width: 100%;
+        background-position: center ;
+  
+    }
+  }  
