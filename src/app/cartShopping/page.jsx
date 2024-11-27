@@ -57,6 +57,7 @@ const [token, setToken] = useState(null);
 
   const fetchUser = async () => {
     setLoading(true);
+    console.log(token, "token");
     try {
       const response = await fetch(
         `https://node-js-ecommerce-sand.vercel.app/api/users/${idUser}`,
