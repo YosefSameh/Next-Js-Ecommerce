@@ -148,7 +148,7 @@ const Products = () => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
     fetchProducts(currentPage, sort, categories);
-  }, [currentPage, sort, categories, valueInpute]);
+  }, [currentPage, sort, categories, valueInpute,token]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

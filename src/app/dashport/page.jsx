@@ -64,7 +64,7 @@ const [token, setToken] = useState(null);
     setToken(storedToken);
     fetchOrders();
     fetchProducts();
-  }, []);
+  }, [token]);
   // ====================================
 
   // Orders

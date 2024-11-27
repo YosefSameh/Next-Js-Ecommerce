@@ -95,7 +95,7 @@ export default function VerticalTabs() {
   setIdUser(storedIdUser);
   setToken(storedToken);
     fetchUser();
-  }, []);
+  }, [token]);
 
  
 
