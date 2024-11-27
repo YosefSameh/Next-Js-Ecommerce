@@ -348,7 +348,7 @@ const Products = () => {
         />
         {/* ====== */}
 
-        {pathname  === "next-js-ecommerce-mauve.vercel.app/shop" ? (
+        {pathname  === "/shop" ? (
           <>
             <div className="col-lg-12 col-8 col-md-12  mb-3 shadow">
               <Search>
