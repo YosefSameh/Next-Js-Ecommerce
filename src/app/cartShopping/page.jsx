@@ -30,7 +30,7 @@ const [token, setToken] = useState(null);
   setIdUser(storedIdUser);
   setToken(storedToken);
     fetchUser();
-  }, []);
+  }, [token]);
 
   const handleClickOpenDelete = (idProduct) => {
     setIdProductDelete(idProduct);
