@@ -53,7 +53,7 @@ const DetailsProduct = ({ idproduct }) => {
     }
   };
 
-  const AddToCart = async (Titel, Price, Categroire) => {
+  const AddToCart = async (Titel, Price, Categroire,Imgs) => {
     if (!token) {
       return toast.error("You Must Login Before", {
         position: "top-left",
@@ -70,6 +70,7 @@ const DetailsProduct = ({ idproduct }) => {
       Titel,
       Price,
       Categroire,
+      Imgs,
     };
 
     const response = await fetch(
@@ -220,7 +221,7 @@ const DetailsProduct = ({ idproduct }) => {
                   className="bg-black text-white rounded p-3 d-flex justify-content-center align-items-center"
                   style={{ width: "35%" }}
                   onClick={() =>
-                    AddToCart(product.Titel, product.Price, product.Categroire)
+                    AddToCart(product.Titel, product.Price, product.Categroire,product.Imgs)
                   }
                 >
                   Add to Cart
