@@ -1,39 +1,14 @@
-"use client";
+"use client"
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Badge, Button, IconButton } from "@mui/material";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./nav.css";
 
 const NavBar = () => {
-  const pathname = usePathname();
-  const idUser = localStorage.getItem("idUser");
-  const token = localStorage.getItem("token");
-
-  const fetchUser = async () => {
-    try {
-      const response = await fetch(
-        `https://node-js-ecommerce-sand.vercel.app/api/users/${idUser}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      const data = await response.json();
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
+  const pathname = usePathname()
 
   return (
     <>

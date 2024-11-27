@@ -50,7 +50,9 @@ function a11yProps(index) {
 
 export default function VerticalTabs() {
 
-  const token = localStorage.getItem("token")
+  
+const [token, setToken] = useState(null);
+
   const [value, setValue] = useState(0);
   
   const handleChange = (event, newValue) => {
@@ -58,6 +60,8 @@ export default function VerticalTabs() {
   };
   
   useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
     fetchOrders();
     fetchProducts();
   }, []);

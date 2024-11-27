@@ -32,6 +32,7 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import { ExpandMore } from "@mui/icons-material";
 import { Flip, toast, ToastContainer } from "react-toastify";
+import { usePathname } from "next/navigation";
 
 // ====================
 
@@ -122,8 +123,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Products = () => {
   // =========================
-  const token = localStorage.getItem("token");
+  const pathname = usePathname()
   const [open2, setOpen2] = useState(false);
+ 
+  const [token, setToken] = useState(null);
+  
 
   const handleClick2 = () => {
     setOpen2(!open2);
@@ -133,7 +137,7 @@ const Products = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [currentPage, setCurrentPage] = useState(1);
-  const [products, setProducts] = useState("");
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sort, setSort] = useState("");
   const [categories, setCategories] = useState("");
@@ -141,6 +145,8 @@ const Products = () => {
   const [countPage, setCountPage] = useState(1);
 
   useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
     fetchProducts(currentPage, sort, categories);
   }, [currentPage, sort, categories, valueInpute]);
 
@@ -342,7 +348,7 @@ const Products = () => {
         />
         {/* ====== */}
 
-        {window.location.href === "http://localhost:3000/shop" ? (
+        {pathname  === "http://localhost:3000/shop" ? (
           <>
             <div className="col-lg-12 col-8 col-md-12  mb-3 shadow">
               <Search>

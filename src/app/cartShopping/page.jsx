@@ -14,8 +14,9 @@ import { Flip, toast, ToastContainer } from "react-toastify";
 import TextField from "@mui/material/TextField";
 
 const CartShopping = () => {
-  const idUser = localStorage.getItem("idUser");
-  const token = localStorage.getItem("token");
+  const [idUser, setIdUser] = useState(null);
+const [token, setToken] = useState(null);
+
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
   const [quantities, setQuantities] = useState({});
@@ -24,6 +25,10 @@ const CartShopping = () => {
   const [openDelete, setOpenDelete] = useState(false);
 
   useEffect(() => {
+    const storedIdUser = localStorage.getItem("idUser");
+  const storedToken = localStorage.getItem("token");
+  setIdUser(storedIdUser);
+  setToken(storedToken);
     fetchUser();
   }, []);
 

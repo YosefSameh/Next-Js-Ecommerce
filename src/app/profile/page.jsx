@@ -49,8 +49,9 @@ function a11yProps(index) {
 export default function VerticalTabs() {
 
   const [value, setValue] = useState(0);
-  const idUser = localStorage.getItem("idUser");
-  const token = localStorage.getItem("token");
+  const [idUser, setIdUser] = useState(null);
+  const [token, setToken] = useState(null);
+  
   const [user, setUser] = useState("");
 
   const handleChange = (event,newValue) => {
@@ -89,6 +90,10 @@ export default function VerticalTabs() {
   };
 
   useEffect(() => {
+    const storedIdUser = localStorage.getItem("idUser");
+  const storedToken = localStorage.getItem("token");
+  setIdUser(storedIdUser);
+  setToken(storedToken);
     fetchUser();
   }, []);
 
