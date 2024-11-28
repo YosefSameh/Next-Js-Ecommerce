@@ -57,6 +57,7 @@ const Rigster = () => {
           router.push("/");
           localStorage.setItem("token", data.data.Users.token);
           localStorage.setItem("idUser", data.data.Users._id);
+          localStorage.setItem("role",data.data.Users.role)
         } else {
           toast.error("This Email Is Used" || "SignUp failed!", {
             position: "top-left",

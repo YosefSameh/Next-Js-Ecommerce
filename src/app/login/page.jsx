@@ -41,10 +41,12 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data,"login");
         
         if (data.status === "Successful") {
           localStorage.setItem("token",data.data.Users.token)
             localStorage.setItem("idUser",data.data.Users._id)
+            localStorage.setItem("role",data.data.Users.role)
 
           if (data.data.Users.role == "Manger") {
             console.log(data.data.Users.role);
