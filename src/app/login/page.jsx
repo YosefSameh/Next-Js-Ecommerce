@@ -41,7 +41,7 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data,"login");
+      
         
         if (data.status === "Successful") {
           localStorage.setItem("token",data.data.Users.token)
@@ -49,14 +49,14 @@ const Login = () => {
             localStorage.setItem("role",data.data.Users.role)
 
           if (data.data.Users.role == "Manger") {
-            console.log(data.data.Users.role);
+            
             router.push("/dashport"); 
             
             
           }else{
 
             router.push("/");
-            console.log(data.data.Users.role);
+            
           }
           
         } 

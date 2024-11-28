@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { Triangle } from 'react-loader-spinner';
 import { Flip, toast, ToastContainer } from 'react-toastify';
 import { UploadFiles } from '../components/uplode';
+import Link from 'next/link';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -350,7 +351,16 @@ const [token, setToken] = useState(null);
 
 
   return (
+    <>
+    <div className='d-flex justify-content-end mt-lg-3'>
+        <Link href="/login" className="me-4 my-3 my-lg-0 fs-5 ">
+          <Button variant="contained" className="bg-black btn-login ">
+            LogIn
+          </Button>
+        </Link>
+      </div>
     <Box sx={{ flexGrow: 1, bgcolor: "background.paper", display: "flex" }}>
+      
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -371,7 +381,9 @@ const [token, setToken] = useState(null);
           label="Add Product"
           {...a11yProps(1)}
         />
+        
       </Tabs>
+     
 
       {/* Orders Tab */}
       <TabPanel value={value} index={0} style={{ width: "80%" }}>
@@ -464,7 +476,6 @@ const [token, setToken] = useState(null);
             </Button>
           </DialogActions>
         </Dialog>
-
       </TabPanel>
       {/* Orders */}
 
@@ -749,6 +760,7 @@ const [token, setToken] = useState(null);
         transition={Flip}
       />
     </Box>
+    </>
   );
 }
 
